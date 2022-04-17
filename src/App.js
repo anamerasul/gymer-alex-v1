@@ -7,6 +7,7 @@ import Services from './Pages/Services/Services/Services';
 
 import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Login/Login';
+import SignUp from './Pages/SignUp/SignUp';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/services/:id" element={<DetailsService></DetailsService>}></Route>
 
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<SignUp></SignUp>}></Route>
       </Routes>
 
 

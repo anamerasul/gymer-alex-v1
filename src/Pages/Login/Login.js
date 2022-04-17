@@ -5,6 +5,9 @@ import { BsFacebook } from 'react-icons/bs';
 import { AiFillGithub } from 'react-icons/ai';
 
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { sendEmailVerification } from 'firebase/auth';
+// import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider } from "firebase/auth"
 
 
 import auth from '../../Firebase/firebase.init';
@@ -12,15 +15,23 @@ import auth from '../../Firebase/firebase.init';
 
 const Login = () => {
 
+    const googleprovider = new GoogleAuthProvider()
+
+    const facebookProvider = new FacebookAuthProvider();
+
+    const githubprovider = new GithubAuthProvider();
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     // const [error, setError] = useState('')
+
+
 
     const [
         signInWithEmailAndPassword,
         user,
         loading,
-        error,
+        error
     ] = useSignInWithEmailAndPassword(auth);
 
     const navigate = useNavigate()
@@ -34,17 +45,57 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
 
+        signInWithPopup(auth, googleprovider)
+            .then((result) => {
+                const user = result.user;
 
+                console.log(user.displayName)
+
+                verifyEmail()
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorMessage = error.message;
+
+            });
 
     }
-    const handleFacebookSignIn = () => {
 
+    console.log(error?.message)
+    const handleFacebookSignIn = () => {
+        signInWithPopup(auth, facebookProvider)
+            .then((result) => {
+                // The signed-in user info.
+                const user = result.user;
+
+
+                console.log(user)
+                verifyEmail()
+
+
+            })
+            .catch((error) => {
+
+                const errorMessage = error.message;
+                // The email of the user's account used.
+            });
 
 
     }
     const handleGitHubSignIn = () => {
 
+        signInWithPopup(auth, githubprovider)
+            .then((result) => {
+                const user = result.user;
 
+
+                console.log(user)
+                verifyEmail()
+
+            })
+
+            .catch((error) => {
+                const errorMessage = error.message;
+            });
 
     }
 
@@ -68,6 +119,19 @@ const Login = () => {
 
 
 
+
+
+    }
+
+
+
+    const verifyEmail = () => {
+
+        sendEmailVerification(auth.currentUser)
+            .then(() => {
+
+                console.log('verify')
+            })
     }
     return (
         <div>
