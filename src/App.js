@@ -1,11 +1,16 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { useState } from "react";
+// import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
-import { motion, MotionConfig } from "framer-motion";
+// import { motion, MotionConfig } from "framer-motion";
 import 'react-toastify/dist/ReactToastify.css';
+import auth from './Firebase/firebase.init';
 // import { Refresh } from "./refresh";
+
+
 function App() {
+
+  console.log(auth)
   const notify = () => toast("Wow so easy !");
   return (
 
@@ -19,7 +24,7 @@ function App() {
         <ToastContainer />
 
       </div>
-      <motion.div className="example-container"
+      {/* <motion.div className="example-container"
         animate={{
           scale: [1, 2, 2, 1, 1],
           rotate: [0, 0, 270, 270, 0],
@@ -38,7 +43,7 @@ function App() {
         <h2>hello</h2>
 
 
-      </motion.div>
+      </motion.div> */}
     </div>
 
 
