@@ -1,11 +1,12 @@
 // import logo from './logo.svg';
 import { Route, Routes } from 'react-router';
 import './App.css';
-import DetailsService from './Pages/DetailsService/DetailsService';
+import DetailsService from './Pages/Services/DetailsService/DetailsService';
 import Home from './Pages/Home/Home/Home';
 import Services from './Pages/Services/Services/Services';
 
 import Header from './Pages/Shared/Header/Header';
+import Login from './Pages/Login/Login';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route path="/services" element={<Services></Services>}> </Route>
 
         <Route path="/services/:id" element={<DetailsService></DetailsService>}></Route>
+
+        <Route path="/login" element={<Login></Login>}></Route>
       </Routes>
 
 

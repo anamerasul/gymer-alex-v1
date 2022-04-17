@@ -54,7 +54,7 @@ const Header = () => {
                                 </li>
 
                                 <li className="nav-item">
-                                    <CustomLink className="px-3 py-2 flex items-center uppercase" to='/Signup'>Signup</CustomLink>
+                                    <CustomLink className="px-3 py-2 flex items-center uppercase" to='/signup'>Signup</CustomLink>
 
                                 </li>
 

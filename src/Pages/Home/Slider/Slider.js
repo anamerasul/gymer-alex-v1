@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const Slider = () => {
     return (
-        <div className="bg-[#2d2f33] text-white">
+        <div className="bg-[#2d2f33] text-white App">
             <section className="container mx-auto text-left px-10 py-6 md:py-40">
                 <div className="flex items-center justify-between flex-col lg:flex-row">
                     <div className="order-2 sm:order-1 ml-16 sm:ml-0">
