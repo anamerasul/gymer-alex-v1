@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MdLegendToggle } from 'react-icons/md';
 
 import CustomLink from '../../../Components/CustomLink/CustomLink';
+import './Header.css'
 
 // import logo from './../../../Images/logo.png'
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
         <header className=''>
             <>
                 <nav className="flex flex-wrap items-center sticky justify-between px-2 py-3 top-0 bg-gray-800 from-yellow-700 shadow-lg  text-white mb-3">
-                    <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+                    <div className="container px-4 mx-auto flex flex-wrap items-center justify-between sm:justify-center">
                         <div className="w-full relative flex justify-between md:w-auto md:static md:block md:justify-start">
                             <Link to='/'
                                 className="text-xl md:text-4xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-fuchsia-300 md:text-yellow-600 "
@@ -34,7 +35,7 @@ const Header = () => {
                             }
                             id="example-navbar-danger"
                         >
-                            <ul className="flex flex-col md:flex-row list-none  md:ml-auto">
+                            <ul className="flex flex-col md:flex-row list-none  sm:ml-auto">
                                 <li className="nav-item">
                                     <CustomLink className="px-3 py-2 flex items-center uppercase" to='/'>HOME</CustomLink>
                                 </li>
