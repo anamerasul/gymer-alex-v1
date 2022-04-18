@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useUpdateProfile, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { sendEmailVerification } from 'firebase/auth';
-// import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from './../../Firebase/firebase.init';
 import SocialSignup from '../SocialSignUp/SocialSignup';
 
@@ -167,14 +166,12 @@ const SignUp = () => {
                 navigate(from, { replace: false })
             }
 
-        }, 6000)
+        }, 2000)
 
         toast.success('Successfully create profile!!!');
 
 
     }
-
-    console.log(displayName)
 
     return (
 

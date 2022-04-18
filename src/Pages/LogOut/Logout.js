@@ -1,16 +1,34 @@
 import React from 'react';
 import { signOut } from 'firebase/auth';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
 
-
-
 const Logout = () => {
     const [user] = useAuthState(auth)
+
+    const navigate = useNavigate()
+
+    const location = useLocation()
+
     const handleLogoutSubmit = (e) => {
 
         e.preventDefault()
         signOut(auth)
+
+        const from = location?.state?.form?.pathname || '/'
+
+        setTimeout(() => {
+            if (user) {
+                navigate(from, { replace: true })
+            }
+
+            else {
+
+                navigate(from, { replace: false })
+            }
+
+        }, 1000)
     }
     return (
         <div>
@@ -56,3 +74,7 @@ const Logout = () => {
 };
 
 export default Logout;
+
+
+
+

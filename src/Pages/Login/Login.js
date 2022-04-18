@@ -108,18 +108,6 @@ const Login = () => {
 
 
     }
-
-    console.log(user)
-
-
-
-
-
-
-
-
-
-    console.log(user?.displayName)
     return (
         <div>
 
