@@ -28,8 +28,9 @@ https://gymer-alex.web.app/
 - react-router-dom
 - firebase
 - react-icons
--react-firebase-hooks
--react-toastify
+- react-firebase-hooks
+- react-toastify
+- daisyui
 
 
 ## Main Features:
@@ -51,4 +52,4 @@ https://gymer-alex.web.app/
 - visitor can update their them and they can reset the password
 -use toast for each of the login,signup,checkout form action 
 - spinner shows while data is processing on  when  it's load complete the spinner is gone;
--   
+- daisyui uses for dark theme;   
