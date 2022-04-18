@@ -92,12 +92,12 @@ const Header = () => {
                                 {
 
                                     user?.uid ? <li className="nav-item">
-                                        <CustomLink className="px-3 py-2 flex items-center uppercase" to='/update'>{user?.displayName}</CustomLink>
+                                        <CustomLink className="px-3 py-2 flex border-2 items-center uppercase" to='/update'>{user?.displayName}</CustomLink>
                                     </li> : ''
                                 }
 
 
-                                {user?.displayName && <img className="h-[45px] w-[45px]" style={{ "borderRadius": "50%" }} src={user?.photoURL} alt="" />}
+                                {user?.displayName && <img className="h-[45px] w-[45px] " style={{ "borderRadius": "50%" }} src={user?.photoURL} alt="" />}
                             </ul>
                         </div>
                     </div>
