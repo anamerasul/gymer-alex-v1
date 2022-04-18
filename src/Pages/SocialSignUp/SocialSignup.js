@@ -38,7 +38,7 @@ const SocialSignup = () => {
             })
     }
 
-    const handleGoogleSignUp = async () => {
+    const handleGoogleSignUp = () => {
 
 
         signInWithPopup(auth, googleprovider)
