@@ -197,17 +197,17 @@ const SignUp = () => {
 
 
                         <div className="mb-4">
-                            <label className="block text-blue-600 text-grey-darker text-sm font-bold mb-2" htmlFor="email">
+                            <label className="block text-blue-600 text-grey-darker  text-sm font-bold mb-2" htmlFor="email">
                                 Email
                             </label>
 
-                            <input onBlur={handleEmailBlur} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="email" required />
+                            <input onBlur={handleEmailBlur} className="shadow appearance-none text-gray-900 border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="email" required />
                         </div>
                         <div className="mb-4">
                             <label className="block text-blue-600 text-grey-darker text-sm font-bold mb-2" htmlFor="password">
                                 Password
                             </label>
-                            <input onBlur={handlePasswordBlur} className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" required />
+                            <input onBlur={handlePasswordBlur} className="shadow appearance-none border text-gray-900 border-red rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" required />
                         </div>
 
 
@@ -215,7 +215,7 @@ const SignUp = () => {
                             <label className="block text-blue-600 text-grey-darker text-sm font-bold mb-2" htmlFor="password">
                                 Confrim Password
                             </label>
-                            <input onBlur={handleConfrimPasswordBlur} className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="ConfrimPassword" type="password" placeholder="******************" required />
+                            <input onBlur={handleConfrimPasswordBlur} className="shadow  text-gray-900 appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="ConfrimPassword" type="password" placeholder="******************" required />
 
                             <p className="text-red-600 text-xs italic">{error}</p>
                         </div>
