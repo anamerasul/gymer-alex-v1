@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { FcGoogle } from 'react-icons/fc';
-import { BsFacebook } from 'react-icons/bs';
-import { AiFillGithub } from 'react-icons/ai';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useUpdateProfile, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { sendEmailVerification } from 'firebase/auth';
 // import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider } from "firebase/auth"
 import auth from './../../Firebase/firebase.init';
 import SocialSignup from '../SocialSignUp/SocialSignup';
 
 
-
 const SignUp = () => {
 
-    const googleprovider = new GoogleAuthProvider()
-
-    const facebookProvider = new FacebookAuthProvider();
-
-    const githubprovider = new GithubAuthProvider();
+    const [displayName, setDisplayName] = useState('');
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -27,9 +18,13 @@ const SignUp = () => {
 
     const [name, setName] = useState('')
 
+
+
     const navigate = useNavigate()
 
     const location = useLocation()
+
+    const [updateProfile, updating,] = useUpdateProfile(auth);
 
 
 
@@ -143,12 +138,20 @@ const SignUp = () => {
 
         const from = location?.state?.form?.pathname || '/update'
 
-        if (user) {
+        if (user?.displayName) {
             navigate(from, { replace: true })
         }
 
+        else {
+
+            navigate(from, { replace: false })
+        }
+
+
 
     }
+
+    console.log(auth.currentUser)
 
 
 
@@ -184,7 +187,9 @@ const SignUp = () => {
                                 Name
                             </label>
 
-                            <input type="text" onBlur={handleNameBlur} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="name" placeholder="name" required />
+                            <input type="displayName"
+                                value={displayName}
+                                onChange={(e) => setDisplayName(e.target.value)} onBlur={handleNameBlur} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="name" placeholder="name" required />
                         </div>
 
 
@@ -216,7 +221,10 @@ const SignUp = () => {
                         <div className="flex items-center justify-between ">
 
 
-                            <input style={{ 'cursor': 'pointer' }} type='submit' className=" ml-10 bg-blue-600 hover:bg-white text-white hover:text-blue-800 font-bold py-1 px-16 rounded-pill focus:outline-none  focus:shadow-outline pointer-events-auto" value='Sign up' />
+                            <input onClick={async () => {
+                                await updateProfile({ displayName });
+                                alert('Updated profile');
+                            }} style={{ 'cursor': 'pointer' }} type='submit' className=" ml-10 bg-blue-600 hover:bg-white text-white hover:text-blue-800 font-bold py-1 px-16 rounded-pill focus:outline-none  focus:shadow-outline pointer-events-auto" value='Sign up' />
                             <br />
 
 

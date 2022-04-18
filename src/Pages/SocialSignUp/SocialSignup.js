@@ -134,7 +134,7 @@ const SocialSignup = () => {
 
                 toast.success('User Successfully Logged In !!!');
                 setTimeout(() => {
-                    // window.location.href = "http://localhost:3000/";
+                    window.location.href = "http://localhost:3000/";
                 }, 2000)
             })
 

@@ -8,12 +8,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateProfile = () => {
-
-    const notify = () => toast("updating !");
-
     const user = auth.currentUser;
+
+
     const [displayName, setDisplayName] = useState('');
-    const [updateProfile, updating, error] = useUpdateProfile(auth);
+    const [updateProfile,] = useUpdateProfile(auth);
 
 
 
@@ -21,7 +20,7 @@ const UpdateProfile = () => {
 
     const location = useLocation()
 
-
+    console.log(location);
 
     // if (user?.displayName) {
     //     navigate('/')
@@ -31,15 +30,27 @@ const UpdateProfile = () => {
 
         e.preventDefault();
         updateProfile(displayName)
-
-        notify()
         const from = location?.state?.form?.pathname || '/'
-        if (user) {
-            navigate(from, { replace: true })
-        }
+
+        console.log(from)
+
+
+
+        setTimeout(() => {
+            // window.location.href = "http://localhost:3000/";
+
+            if (user) {
+                navigate(from, { replace: true })
+            }
+
+        }, 4000)
+
+        console.log('Update')
+
+        toast.success('Successfully update Name!!!');
+
 
     }
-
     return (
 
         <div className="flex justify-center">
@@ -68,7 +79,6 @@ const UpdateProfile = () => {
 
                         <input onClick={async () => {
                             await updateProfile({ displayName });
-                            notify();
                         }} style={{ 'cursor': 'pointer' }} type='submit' className=" ml-0 bg-blue-600 hover:bg-white text-white hover:text-blue-800 font-bold py-1 px-16 rounded-pill focus:outline-none  focus:shadow-outline pointer-events-auto" value="Update" />
 
 
@@ -96,7 +106,14 @@ const UpdateProfile = () => {
 
             </div>
 
+            <ToastContainer
+                position="top-center"
+                autoClose={1000}
+            />
+
         </div>
+
+
 
     );
 };
