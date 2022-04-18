@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 import { MdLegendToggle } from 'react-icons/md';
 
 import CustomLink from '../../../Components/CustomLink/CustomLink';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import './Header.css'
 import auth from '../../../Firebase/firebase.init';
-
-// import logo from './../../../Images/logo.png'
 const Header = () => {
 
-    const user = auth.currentUser
+    const [user] = useAuthState(auth);
     const [navbarOpen, setNavbarOpen] = useState(false);
     return (
         <header className=''>
@@ -41,7 +40,12 @@ const Header = () => {
                             }
                             id="example-navbar-danger"
                         >
+
+
                             <ul className="flex flex-col md:flex-row list-none  sm:ml-auto">
+
+
+
                                 <li className="nav-item">
                                     <CustomLink className="px-3 py-2 flex items-center uppercase" to='/'>HOME</CustomLink>
                                 </li>
@@ -54,29 +58,46 @@ const Header = () => {
                                 <li className="nav-item">
                                     <CustomLink className="px-3 py-2 flex items-center uppercase" to='/blogs'>Blogs</CustomLink>
                                 </li>
-                                <li className="nav-item">
-                                    <CustomLink className="px-3 py-2 flex items-center uppercase" to='/login'>Login</CustomLink>
 
-                                </li>
 
-                                <li className="nav-item">
-                                    <CustomLink className="px-3 py-2 flex items-center uppercase" to='/signup'>Signup</CustomLink>
 
-                                </li>
 
-                                <li className="nav-item">
-                                    <CustomLink className="px-3 py-2 flex items-center uppercase" to='/logout'>Logout</CustomLink>
-
-                                </li>
 
                                 {
 
-                                    user.uid ? <li className="nav-item">
-                                        <CustomLink className="px-3 py-2 flex items-center uppercase" to='/update'>Update </CustomLink>
+                                    user?.uid ? '' : <li className="nav-item">
+                                        <CustomLink className="px-3 py-2 flex items-center uppercase" to='/login'>Login</CustomLink>
 
+                                    </li>
+                                }
+                                {
+
+                                    user?.uid ? '' : <li className="nav-item">
+                                        <CustomLink className="px-3 py-2 flex items-center uppercase" to='/signup'>Signup</CustomLink>
+
+                                    </li>
+                                }
+
+
+
+                                {
+
+                                    user?.uid ? <li className="nav-item">
+                                        <CustomLink className="px-2 py-2 mr-2  rounded-pill marker: flex items-center uppercase" to='/logout'>Logout</CustomLink>
+
+                                    </li> : " "
+                                }
+
+
+                                {
+
+                                    user?.uid ? <li className="nav-item">
+                                        <CustomLink className="px-3 py-2 flex items-center uppercase" to='/update'>{user?.displayName}</CustomLink>
                                     </li> : ''
                                 }
 
+
+                                {user?.displayName && <img className="h-[45px] w-[45px]" style={{ "borderRadius": "50%" }} src={user?.photoURL} alt="" />}
                             </ul>
                         </div>
                     </div>

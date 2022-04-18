@@ -119,7 +119,7 @@ const Login = () => {
 
 
 
-    console.log(user.displayName)
+    console.log(user?.displayName)
     return (
         <div>
 
