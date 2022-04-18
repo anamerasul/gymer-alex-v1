@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SocialSignup = () => {
 
-    // const user = auth.currentUser
+    const user = auth.currentUser
 
     const googleprovider = new GoogleAuthProvider()
 
@@ -105,7 +105,7 @@ const SocialSignup = () => {
 
         setError('');
     }
-    const handleGitHubSignIn =() => {
+    const handleGitHubSignIn = () => {
         signInWithPopup(auth, githubprovider)
             .then((result) => {
                 const user = result.user;
@@ -134,19 +134,19 @@ const SocialSignup = () => {
     }
 
 
-    // useEffect(()=>{
+    useEffect(() => {
+
+        let from = location.state?.form?.pathname || '/'
+
+        if (user) {
+            navigate(from, { replace: true })
+        }
+
+    }, [user])
 
 
-        
-    // },[])
 
 
-
-    const from = location.state?.form?.pathname || '/'
-
-    if (auth.currentUser) {
-        navigate(from, { replace: true })
-    }
 
 
 

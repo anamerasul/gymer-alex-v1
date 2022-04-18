@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useUpdateProfile, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { sendEmailVerification } from 'firebase/auth';
@@ -154,11 +154,23 @@ const SignUp = () => {
     }
 
 
-    const from = location.state?.form?.pathname || '/'
+    useEffect(() => {
 
-    if (user) {
-        navigate(from, { replace: true })
-    }
+        let from = location.state?.form?.pathname || '/'
+
+        if (user) {
+            navigate(from, { replace: true })
+        }
+
+    }, [user])
+
+
+
+    // const from = location.state?.form?.pathname || '/'
+
+    // if (user) {
+    //     navigate(from, { replace: true })
+    // }
 
     return (
 
