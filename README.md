@@ -25,6 +25,7 @@ https://gymer-alex.web.app/
 - react 18 and react-dom
 - React-router
 - TailwindCSS
+- react-router-dom
 - firebase
 - react-icons
 -react-firebase-hooks
@@ -49,4 +50,5 @@ https://gymer-alex.web.app/
 - a varification email send to your desire email when you sign up
 - visitor can update their them and they can reset the password
 -use toast for each of the login,signup,checkout form action 
-- spinner shows while data is processing on  when  it's load complete the spinner is gone;  
+- spinner shows while data is processing on  when  it's load complete the spinner is gone;
+-   
