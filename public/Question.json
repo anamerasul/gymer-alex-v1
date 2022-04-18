@@ -11,6 +11,14 @@
         "answer":"Firebase provides authentication service and It's provides some other service as 1.Cloud Firestore service 2.Realtime Database, 3.Storage service, 4.Hosting service,5. Function sevice, 6. Machine Learning "
         
         
+        },
+    {
+        
+        "id":3,
+        "question":"Why are you using firebase? What other options do you have to implement authentication?",
+        "answer":"Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more. 10 Best Open Source Firebase Alternatives are Parse. ,Back4App. ...AWS Amplify. ... Kuzzle. ...Couchbase. ...NativeScript. ...RxDB. ...Top Alternatives to Firebase Authentication Auth0....MongoDB. Passport. ...Okta. .....JSON Web Token. ."
+        
+        
         }
   
     ]

@@ -8,7 +8,7 @@ const Testimonial = () => {
     return (
         <div className="container mx-auto px-8 my-20">
 
-            <h3 className="text-center text-4xl text-blue-600 font-bold my-10">Previous Client Says</h3>
+            <h3 className="text-center text-4xl text-blue-600 font-bold my-10">Previous Client</h3>
 
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
