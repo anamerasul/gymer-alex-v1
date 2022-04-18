@@ -148,7 +148,7 @@ const SignUp = () => {
         createUserWithEmailAndPassword(email, password)
         verifyEmail()
 
-        const from = location?.state?.form?.pathname || '/update'
+        const from = location?.state?.form?.pathname || '/'
 
         // if (user?.displayName) {
         //     navigate(from, { replace: true })
@@ -158,7 +158,7 @@ const SignUp = () => {
         setTimeout(() => {
             // window.location.href = "http://localhost:3000/";
 
-            if (user?.displayName) {
+            if (!user) {
                 navigate(from, { replace: true })
             }
 

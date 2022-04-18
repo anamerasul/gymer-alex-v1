@@ -31,6 +31,9 @@ const Header = () => {
                                 <MdLegendToggle ></MdLegendToggle>
                             </button>
                         </div>
+
+
+
                         <div
                             className={
                                 "md:flex flex-grow items-center" +
@@ -66,11 +69,13 @@ const Header = () => {
 
                                 </li>
 
+                                {
 
-                                <li>
+                                    user.uid ? <li className="nav-item">
+                                        <CustomLink className="px-3 py-2 flex items-center uppercase" to='/update'>Update </CustomLink>
 
-                                    {user?.displayName}
-                                </li>
+                                    </li> : ''
+                                }
 
                             </ul>
                         </div>
