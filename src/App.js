@@ -12,6 +12,7 @@ import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
 import UpdateProfile from './Pages/UpdateProfile/UpdateProfile';
 import Logout from './Pages/LogOut/Logout';
 import RequareAuth from './Components/RequareAuth/RequareAuth';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 function App() {
@@ -68,6 +69,8 @@ function App() {
 
 
         }></Route>
+
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 
 
