@@ -4,53 +4,67 @@ import Service from '../Service/Service';
 
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner';
 
 const HomeServices = () => {
 
     const [services] = UseServiceData([])
     return (
-        <div className="container mx-auto">
 
-            <div className="text-center py-2 md:py-10">
-                <h2 className="text-4xl pb-4 text-blue-500 font-bold ">My services</h2>
+        <>
+            {
+                services.length === 0 ? <Spinner></Spinner> : <div className="container mx-auto">
 
-                <p className="text-sm text-blue-100 font-bold">see services</p>
+                    <div className="text-center py-2 md:py-10">
+                        <h2 className="text-4xl pb-4 text-blue-500 font-bold ">My services</h2>
 
-            </div>
+                        <p className="text-sm text-blue-100 font-bold">see services</p>
+
+                    </div>
 
 
 
 
-            <motion.div
-                exit={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                initial={{ opacity: 0 }}>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 px-10 ">
+                    <motion.div
+                        exit={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0 }}>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 px-10 ">
 
-                    {
-                        services.slice(0, 3).map(service => <Service
-                            key={service.id}
-                            service={service}
+                            {
+                                services.slice(0, 3).map(service => <Service
+                                    key={service.id}
+                                    service={service}
 
-                        ></Service>)
-                    }
+                                ></Service>)
+                            }
+
+                        </div>
+
+                        <div className="mx-auto text-center my-6">
+                            <Link className="px-8 py-3 mt-10 mb-8 bg-blue-600 text-white rounded hover:bg-white hover:text-gray-800 transition duration-30 " to='/services'>Explore More</Link>
+                        </div>
+                    </motion.div>
+
+
+
+
+
+
+
+
 
                 </div>
 
-                <div className="mx-auto text-center my-6">
-                    <Link className="px-8 py-3 mt-10 mb-8 bg-blue-600 text-white rounded hover:bg-white hover:text-gray-800 transition duration-30 " to='/services'>Explore More</Link>
-                </div>
-            </motion.div>
+
+            }
+
+
+        </>
 
 
 
 
-
-
-
-
-
-        </div>
     );
 };
 

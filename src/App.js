@@ -17,11 +17,15 @@ import About from './Pages/About/About';
 import Footer from './Pages/Shared/Footer/Footer';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import Blogs from './Pages/Blogs/Blogs';
+import auth from './Firebase/firebase.init';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 
 
 function App() {
 
-
+  const [user] = useAuthState(auth);
 
   return (
     <div className="">
@@ -30,13 +34,25 @@ function App() {
 
         <Route path="/" element={<Home></Home>}></Route>
 
-        <Route path="/services" element={
-          <RequareAuth>
+
+
+        {
+          user ? <Route path="/services" element={
+
             <Services></Services>
 
-          </RequareAuth>
 
-        }> </Route>
+          }> </Route> : <Route path="/services" element={
+            <RequareAuth>
+              <Services></Services>
+
+            </RequareAuth>
+
+          }> </Route>
+
+        }
+
+
 
         <Route path="/services/:id" element={
 
