@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SocialSignup = () => {
 
-    const user = auth.currentUser
+    // const user = auth.currentUser
 
     const googleprovider = new GoogleAuthProvider()
 

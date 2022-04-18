@@ -10,7 +10,7 @@ const Services = () => {
 
     const [services] = UseServiceData([])
 
-    const [user] = useAuthState(auth);
+    useAuthState(auth);
 
 
     return (

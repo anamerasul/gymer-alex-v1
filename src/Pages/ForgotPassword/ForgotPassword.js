@@ -7,7 +7,7 @@ const ForgotPassword = () => {
 
     const [email, setEmail] = useState('')
 
-    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
 
     const handleEmailBlur = e => {

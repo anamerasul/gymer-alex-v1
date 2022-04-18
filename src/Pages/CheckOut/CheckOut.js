@@ -67,11 +67,9 @@ const CheckOut = () => {
             if (user) {
                 navigate(from, { replace: true })
             }
-        }, 7000)
-
-
+        }, 5000)
     }
-
+    setError('')
     // console.log(name)
 
 

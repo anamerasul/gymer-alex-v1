@@ -22,6 +22,7 @@ const DetailsService = () => {
     }, []);
 
 
+    // eslint-disable-next-line
     useEffect(() => {
         const foundService = services.find(
             (service) => service.id === id

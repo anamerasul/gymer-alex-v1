@@ -45,7 +45,7 @@ const Logout = () => {
                                 {user?.displayName || user?.email}
                             </h2>
                             <h2 className="block text-grey-darker text-center mx-auto ml-28  text-sm font-bold mb-2">
-                                {user?.displayName && <img className="text-center h-[45px] w-[45px]" style={{ "border-radius": "50%" }} src={user?.photoURL} alt="" />}
+                                {user?.displayName && <img className="text-center h-[45px] w-[45px]" style={{ "borderRadius": "50%" }} src={user?.photoURL} alt="" />}
                             </h2>
                         </div>
 
