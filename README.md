@@ -44,9 +44,9 @@ https://gymer-alex.web.app/
 
 - About cointains Read Story and Years of Coaching Experience section
 
--login and Sign up on this website using email and password and also google , Facebook , github signIn method  use 
+- login and Sign up on this website using email and password and also google , Facebook , github signIn method  use 
 
--serach on Anonymous route visitor goes on not found page
+- serach on Anonymous route visitor goes on not found page
 
 - a varification email send to your desire email when you sign up
 - visitor can update their them and they can reset the password
