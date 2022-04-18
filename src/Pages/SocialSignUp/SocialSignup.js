@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import { AiFillGithub } from 'react-icons/ai';
@@ -7,6 +7,8 @@ import { sendEmailVerification } from 'firebase/auth';
 // import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider } from "firebase/auth"
 import auth from './../../Firebase/firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SocialSignup = () => {
@@ -23,7 +25,13 @@ const SocialSignup = () => {
 
     const location = useLocation()
 
-    const from = location?.state?.form?.pathname || '/'
+
+    const [error, setError] = useState([])
+
+    // const [success, setSuccess] = useState('');
+
+
+
 
 
 
@@ -45,18 +53,31 @@ const SocialSignup = () => {
 
                 console.log(user)
 
-                verifyEmail()
+
+                if (user?.emailVerified === false) {
+
+                    verifyEmail()
+                }
+
+                toast.success('User Successfully Logged In');
+                setTimeout(() => {
+                    window.location.href = "http://localhost:3000/";
+                }, 2000)
+
+
 
 
             }).catch((error) => {
                 // Handle Errors here.
                 const errorMessage = error.message;
 
+                setError(errorMessage)
+
+                toast.error(errorMessage)
+
             });
 
-        if (user) {
-            navigate(from, { replace: true })
-        }
+        setError('');
 
 
     }
@@ -69,46 +90,70 @@ const SocialSignup = () => {
 
 
                 console.log(user)
-                verifyEmail()
+
+                if (user?.emailVerified === false) {
+
+                    verifyEmail()
+                }
+
+
+                toast.success('User Successfully Logged In');
+                setTimeout(() => {
+                    window.location.href = "http://localhost:3000/";
+                }, 2000)
 
             })
             .catch((error) => {
 
                 const errorMessage = error.message;
-                // The email of the user's account used
-            });
 
+                setError(errorMessage)
+
+                toast.error(errorMessage)
+            });
+        const from = location?.state?.form?.pathname || '/'
+
+        console.log(from)
         if (user) {
-            navigate(from, { replace: true })
+
+
+            setTimeout(() => {
+                navigate(from, { replace: true })
+            }, 15000)
         }
 
-
+        setError('');
     }
     const handleGitHubSignIn = () => {
         signInWithPopup(auth, githubprovider)
             .then((result) => {
                 const user = result.user;
+                if (user?.emailVerified === false) {
+                    verifyEmail()
+                }
 
-
-                console.log(user)
-                verifyEmail()
+                toast.success('User Successfully Logged In !!!');
+                setTimeout(() => {
+                    // window.location.href = "http://localhost:3000/";
+                }, 2000)
             })
 
             .catch((error) => {
+
                 const errorMessage = error.message;
+
+                setError(errorMessage)
+                toast.error(errorMessage)
             });
 
-        if (user) {
-            navigate(from, { replace: true })
-        }
-
+        setError('');
 
     }
 
-
-
     return (
         <div>
+
+            {error ? <p className="text-red-800 absolute bottom-10 mb-10 "> {error}</p> : ''}
 
             <button onClick={handleGoogleSignUp} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 left-0 ml-8 text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
                 <FcGoogle className='ml-2'></FcGoogle>
@@ -121,6 +166,12 @@ const SocialSignup = () => {
             <button onClick={handleGitHubSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 right-0 mr-16  text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
                 <AiFillGithub className='ml-2 text-gray-700'></AiFillGithub>
             </button>
+
+
+            <ToastContainer
+                position="top-center"
+                autoClose={1000}
+            />
 
         </div>
     );

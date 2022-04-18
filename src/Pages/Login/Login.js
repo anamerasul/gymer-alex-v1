@@ -190,7 +190,7 @@ const Login = () => {
 
                             </Link></p>
 
-                            <p className="text-xs text-red-800"><Link className="text-xs text-White" to="/forgot">
+                            <p className="text-xs text-yellow-600"><Link className="text-xs text-White" to="/forgot">
                                 Forgoten Password
 
                             </Link></p>
