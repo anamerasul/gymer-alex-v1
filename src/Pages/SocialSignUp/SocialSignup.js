@@ -45,7 +45,7 @@ const SocialSignup = () => {
             .then((result) => {
                 const user = result.user;
 
-                console.log(user)
+                // console.log(user)
 
 
                 if (user?.emailVerified === false) {
