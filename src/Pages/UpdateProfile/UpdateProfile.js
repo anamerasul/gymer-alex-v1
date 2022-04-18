@@ -20,8 +20,6 @@ const UpdateProfile = () => {
 
     const location = useLocation()
 
-    console.log(location);
-
     // if (user?.displayName) {
     //     navigate('/')
     // }
@@ -31,11 +29,6 @@ const UpdateProfile = () => {
         e.preventDefault();
         updateProfile(displayName)
         const from = location?.state?.form?.pathname || '/'
-
-        console.log(from)
-
-
-
         setTimeout(() => {
             // window.location.href = "http://localhost:3000/";
 
@@ -43,9 +36,7 @@ const UpdateProfile = () => {
                 navigate(from, { replace: true })
             }
 
-        }, 4000)
-
-        console.log('Update')
+        }, 2000)
 
         toast.success('Successfully update Name!!!');
 

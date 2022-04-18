@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FcGoogle } from 'react-icons/fc';
-import { BsFacebook } from 'react-icons/bs';
-import { AiFillGithub } from 'react-icons/ai';
 
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { sendEmailVerification } from 'firebase/auth';
-// import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider } from "firebase/auth"
 
 
 import auth from '../../Firebase/firebase.init';
@@ -18,15 +12,8 @@ const Login = () => {
 
     const user = auth.currentUser;
 
-    const googleprovider = new GoogleAuthProvider()
-
-    const facebookProvider = new FacebookAuthProvider();
-
-    const githubprovider = new GithubAuthProvider();
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [error, setError] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -132,7 +119,7 @@ const Login = () => {
 
 
 
-    console.log(user)
+    console.log(user.displayName)
     return (
         <div>
 

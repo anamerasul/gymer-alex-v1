@@ -6,8 +6,14 @@ import { sendEmailVerification } from 'firebase/auth';
 import auth from './../../Firebase/firebase.init';
 import SocialSignup from '../SocialSignUp/SocialSignup';
 
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const SignUp = () => {
+
 
     const [displayName, setDisplayName] = useState('');
 
@@ -18,13 +24,17 @@ const SignUp = () => {
 
     const [name, setName] = useState('')
 
+    const [verifysms, setVerifysms] = useState()
+
+
+
 
 
     const navigate = useNavigate()
 
     const location = useLocation()
 
-    const [updateProfile, updating,] = useUpdateProfile(auth);
+    const [updateProfile,] = useUpdateProfile(auth);
 
 
 
@@ -36,6 +46,8 @@ const SignUp = () => {
             .then(() => {
 
                 console.log('verify')
+
+                setVerifysms("you got a verification Link ")
             })
     }
 
@@ -138,33 +150,31 @@ const SignUp = () => {
 
         const from = location?.state?.form?.pathname || '/update'
 
-        if (user?.displayName) {
-            navigate(from, { replace: true })
-        }
+        // if (user?.displayName) {
+        //     navigate(from, { replace: true })
+        // }
 
-        else {
 
-            navigate(from, { replace: false })
-        }
+        setTimeout(() => {
+            // window.location.href = "http://localhost:3000/";
 
+            if (user?.displayName) {
+                navigate(from, { replace: true })
+            }
+
+            else {
+
+                navigate(from, { replace: false })
+            }
+
+        }, 6000)
+
+        toast.success('Successfully create profile!!!');
 
 
     }
 
-    console.log(auth.currentUser)
-
-
-
-
-
-
-
-    // useEffect(() => {
-    //     if (user) {
-    //         navigate("/update")
-    //     }
-    // }, [])
-
+    console.log(displayName)
 
     return (
 
@@ -174,6 +184,8 @@ const SignUp = () => {
                 <div className="w-full max-w-xs relative">
 
 
+
+                    <h2 className="text-lg text-center text-orange-600 text-[32px]">{verifysms}</h2>
                     <form onSubmit={handleSignUPSubmit} className="bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4 my-32">
 
 
@@ -191,6 +203,11 @@ const SignUp = () => {
                                 value={displayName}
                                 onChange={(e) => setDisplayName(e.target.value)} onBlur={handleNameBlur} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="name" placeholder="name" required />
                         </div>
+
+                        {
+
+                            !name ? <p></p> : ''
+                        }
 
 
 
@@ -223,7 +240,6 @@ const SignUp = () => {
 
                             <input onClick={async () => {
                                 await updateProfile({ displayName });
-                                alert('Updated profile');
                             }} style={{ 'cursor': 'pointer' }} type='submit' className=" ml-10 bg-blue-600 hover:bg-white text-white hover:text-blue-800 font-bold py-1 px-16 rounded-pill focus:outline-none  focus:shadow-outline pointer-events-auto" value='Sign up' />
                             <br />
 
@@ -251,19 +267,6 @@ const SignUp = () => {
 
 
                     <div >
-                        {/* 
-                        <button onClick={handleGoogleSignUp} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 left-0 ml-8 text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
-                            <FcGoogle className='ml-2'></FcGoogle>
-                        </button>
-
-                        <button onClick={handleFacebookSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 right-20  mr-16   text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
-                            <BsFacebook className='ml-2 text-blue-700'></BsFacebook>
-
-                        </button>
-                        <button onClick={handleGitHubSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 right-0 mr-16  text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
-                            <AiFillGithub className='ml-2 text-gray-700'></AiFillGithub>
-
-                        </button > */}
                         <SocialSignup></SocialSignup>
 
 
@@ -273,6 +276,11 @@ const SignUp = () => {
 
 
             </div>
+
+            <ToastContainer
+                position="top-center"
+                autoClose={1000}
+            />
         </div>
     );
 };
