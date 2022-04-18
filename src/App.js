@@ -13,6 +13,7 @@ import UpdateProfile from './Pages/UpdateProfile/UpdateProfile';
 import Logout from './Pages/LogOut/Logout';
 import RequareAuth from './Components/RequareAuth/RequareAuth';
 import NotFound from './Pages/NotFound/NotFound';
+import About from './Pages/About/About';
 
 
 function App() {
@@ -69,6 +70,8 @@ function App() {
 
 
         }></Route>
+
+        <Route path="/about" element={<About></About>}></Route>
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
