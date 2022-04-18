@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import DetailsService from './Components/DetailsService/DetailsService';
 import Home from './Pages/Home/Home/Home';
@@ -15,6 +15,7 @@ import RequareAuth from './Components/RequareAuth/RequareAuth';
 import NotFound from './Pages/NotFound/NotFound';
 import About from './Pages/About/About';
 import Footer from './Pages/Shared/Footer/Footer';
+import CheckOut from './Pages/CheckOut/CheckOut';
 
 
 function App() {
@@ -24,7 +25,6 @@ function App() {
   return (
     <div className="">
       <Header></Header>
-
       <Routes>
 
         <Route path="/" element={<Home></Home>}></Route>
@@ -57,7 +57,7 @@ function App() {
 
         <Route path="/update" element={
 
-          <RequareAuth>
+          <RequareAuth >
             <UpdateProfile></UpdateProfile>
           </RequareAuth>
 
@@ -72,6 +72,9 @@ function App() {
 
         }></Route>
 
+
+        <Route path="/checkout" element={<CheckOut></CheckOut>}></Route>
+        { }
         <Route path="/about" element={<About></About>}></Route>
 
         <Route path="*" element={<NotFound></NotFound>}></Route>

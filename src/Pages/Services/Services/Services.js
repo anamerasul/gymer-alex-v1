@@ -1,13 +1,20 @@
 import React from 'react';
 import UseServiceData from '../../../Hooks/UseServiceData';
 import Service from '../../../Components/Service/Service';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../Firebase/firebase.init';
+
+
 
 const Services = () => {
 
     const [services] = UseServiceData([])
 
+    const [user] = useAuthState(auth);
+
 
     return (
+
         <div className="container mx-auto px-4">
 
             <h2 className="text-4xl pb-4 text-blue-500 font-bold text-center my-5 ">My services</h2>

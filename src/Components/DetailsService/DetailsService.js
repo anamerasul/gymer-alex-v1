@@ -26,12 +26,8 @@ const DetailsService = () => {
         const foundService = services.find(
             (service) => service.id === id
         );
-        console.log(foundService);
         setSingleService(foundService);
     }, [services]);
-
-    console.log(singleService)
-
 
 
     return (
@@ -41,7 +37,7 @@ const DetailsService = () => {
                 <img className="mx-auto rounded-box " src={singleService?.image} alt="" />
                 <p className="text-gray-100 pt-5 w-5/6 lg:w-2/5 mx-auto pb-20 text-center"> Description : {singleService?.subtitle} </p>
                 <p className="mx-auto pb-20 text-center"> price : {singleService?.price} </p>
-                <NavLink className="text-center" to="/checkout"><button className="px-8 py-3 mx-auto mb-10 text-center bg-blue-600 text-white  rounded hover:bg-white hover:text-gray-800 transition duration-300 ">Request This Service</button></NavLink>
+                <NavLink className="text-center" to="/checkout"><button className="px-8 py-3 mx-auto mb-10 text-center bg-blue-600 text-white  rounded hover:bg-white hover:text-gray-800 transition duration-300 ">Enroll This Service</button></NavLink>
             </div>
 
         </div>

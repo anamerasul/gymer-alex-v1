@@ -106,6 +106,10 @@ const Login = () => {
         }
 
 
+        setTimeout(() => {
+            window.location.href = "https://gymer-alex.web.app/";
+        }, 2000)
+
 
     }
     return (

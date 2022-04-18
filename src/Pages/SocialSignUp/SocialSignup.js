@@ -28,12 +28,6 @@ const SocialSignup = () => {
 
     const [error, setError] = useState([])
 
-    // const [success, setSuccess] = useState('');
-
-
-
-
-
 
     const verifyEmail = () => {
 
@@ -60,8 +54,18 @@ const SocialSignup = () => {
                 }
 
                 toast.success('User Successfully Logged In');
+                const from = location?.state?.form?.pathname || '/'
+
+                navigate(from, { replace: true })
+                // setTimeout(() => {
+
+                if (user) {
+                    navigate(from, { replace: true })
+                }
+                // }, 2000)
+
                 setTimeout(() => {
-                    window.location.href = "http://localhost:3000/";
+                    window.location.href = "https://gymer-alex.web.app/";
                 }, 2000)
 
 
@@ -97,10 +101,19 @@ const SocialSignup = () => {
                 }
 
 
-                toast.success('User Successfully Logged In');
+                const from = location?.state?.form?.pathname || '/'
+                // setTimeout(() => {
+
+                if (user) {
+                    navigate(from, { replace: true })
+                }
+                // }, 2000)
+
+
                 setTimeout(() => {
-                    window.location.href = "http://localhost:3000/";
+                    window.location.href = "https://gymer-alex.web.app/";
                 }, 2000)
+
 
             })
             .catch((error) => {
@@ -111,16 +124,8 @@ const SocialSignup = () => {
 
                 toast.error(errorMessage)
             });
-        const from = location?.state?.form?.pathname || '/'
-
-        console.log(from)
-        if (user) {
 
 
-            setTimeout(() => {
-                navigate(from, { replace: true })
-            }, 15000)
-        }
 
         setError('');
     }
@@ -133,9 +138,19 @@ const SocialSignup = () => {
                 }
 
                 toast.success('User Successfully Logged In !!!');
+                const from = location?.state?.form?.pathname || '/'
+                // setTimeout(() => {
+
+                if (user) {
+                    navigate(from, { replace: true })
+                }
+                // }, 2000)
+
+
                 setTimeout(() => {
-                    window.location.href = "http://localhost:3000/";
+                    window.location.href = "https://gymer-alex.web.app/";
                 }, 2000)
+
             })
 
             .catch((error) => {
@@ -149,6 +164,9 @@ const SocialSignup = () => {
         setError('');
 
     }
+
+
+
 
     return (
         <div>
