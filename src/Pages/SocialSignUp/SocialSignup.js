@@ -54,19 +54,6 @@ const SocialSignup = () => {
                 }
 
                 toast.success('User Successfully Logged In');
-                const from = location?.state?.form?.pathname || '/'
-
-                navigate(from, { replace: true })
-                // setTimeout(() => {
-
-                if (user) {
-                    navigate(from, { replace: true })
-                }
-                // }, 2000)
-
-                setTimeout(() => {
-                    window.location.href = "https://gymer-alex.web.app/";
-                }, 2000)
 
 
 
@@ -101,18 +88,7 @@ const SocialSignup = () => {
                 }
 
 
-                const from = location?.state?.form?.pathname || '/'
-                // setTimeout(() => {
 
-                if (user) {
-                    navigate(from, { replace: true })
-                }
-                // }, 2000)
-
-
-                setTimeout(() => {
-                    window.location.href = "https://gymer-alex.web.app/";
-                }, 2000)
 
 
             })
@@ -138,18 +114,7 @@ const SocialSignup = () => {
                 }
 
                 toast.success('User Successfully Logged In !!!');
-                const from = location?.state?.form?.pathname || '/'
-                // setTimeout(() => {
 
-                if (user) {
-                    navigate(from, { replace: true })
-                }
-                // }, 2000)
-
-
-                setTimeout(() => {
-                    window.location.href = "https://gymer-alex.web.app/";
-                }, 2000)
 
             })
 
@@ -163,7 +128,19 @@ const SocialSignup = () => {
 
         setError('');
 
+
+
+
     }
+
+    const from = location.state?.form?.pathname || '/'
+
+    if (auth.currentUser) {
+        navigate(from, { replace: true })
+    }
+
+
+
 
 
 

@@ -28,9 +28,9 @@ const UpdateProfile = () => {
 
         e.preventDefault();
         updateProfile(displayName)
-        const from = location?.state?.form?.pathname || '/'
+        const from = location.state?.form?.pathname || '/'
         setTimeout(() => {
-            // window.location.href = "http://localhost:3000/";
+
 
             if (user) {
                 navigate(from, { replace: true })

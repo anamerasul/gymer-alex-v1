@@ -61,13 +61,13 @@ const CheckOut = () => {
         console.log(shiping)
 
         toast.success('User Successfully purchase');
-        const from = location?.state?.form?.pathname || '/'
+        const from = location.state?.form?.pathname || '/'
         setTimeout(() => {
 
             if (user) {
                 navigate(from, { replace: true })
             }
-        }, 5000)
+        }, 2000)
     }
     setError('')
     // console.log(name)

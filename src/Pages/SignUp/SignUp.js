@@ -147,37 +147,17 @@ const SignUp = () => {
         createUserWithEmailAndPassword(email, password)
         verifyEmail()
 
-        const from = location?.state?.form?.pathname || '/'
-
-        if (user) {
-            navigate(from, { replace: true })
-        }
-
-
-        // // setTimeout(() => {
-        // //     // window.location.href = "https://gymer-alex.web.app/";
-
-        //     if (!user) {
-        //         navigate(from, { replace: true })
-        //     }
-
-        //     else {
-
-        //         navigate(from, { replace: false })
-        //     }
-
-        // }, 2000)
-
-
-
-        setTimeout(() => {
-            window.location.href = "https://gymer-alex.web.app/";
-        }, 2000)
-
 
         toast.success('Successfully create profile!!!');
 
 
+    }
+
+
+    const from = location.state?.form?.pathname || '/'
+
+    if (user) {
+        navigate(from, { replace: true })
     }
 
     return (

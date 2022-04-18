@@ -25,61 +25,6 @@ const Login = () => {
         error
     ] = useSignInWithEmailAndPassword(auth);
 
-    // const handleGoogleSignIn = () => {
-
-    //     signInWithPopup(auth, googleprovider)
-    //         .then((result) => {
-    //             const user = result.user;
-
-    //             console.log(user.displayName)
-
-    //             verifyEmail()
-    //         }).catch((error) => {
-    //             // Handle Errors here.
-    //             const errorMessage = error.message;
-
-    //         });
-
-    // }
-
-    // console.log(error?.message)
-    // const handleFacebookSignIn = () => {
-    //     signInWithPopup(auth, facebookProvider)
-    //         .then((result) => {
-    //             // The signed-in user info.
-    //             const user = result.user;
-
-
-    //             console.log(user)
-    //             verifyEmail()
-
-
-    //         })
-    //         .catch((error) => {
-
-    //             const errorMessage = error.message;
-    //             // The email of the user's account used.
-    //         });
-
-
-    // }
-    // const handleGitHubSignIn = () => {
-
-    //     signInWithPopup(auth, githubprovider)
-    //         .then((result) => {
-    //             const user = result.user;
-
-
-    //             console.log(user)
-    //             verifyEmail()
-
-    //         })
-
-    //         .catch((error) => {
-    //             const errorMessage = error.message;
-    //         });
-
-    // }
 
     const handleEmailBlur = e => {
 
@@ -100,18 +45,20 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
 
 
-        const from = location?.state?.form?.pathname || '/'
-        if (user) {
-            navigate(from, { replace: true })
-        }
 
-
-        setTimeout(() => {
-            window.location.href = "https://gymer-alex.web.app/";
-        }, 2000)
 
 
     }
+
+
+    const from = location.state?.form?.pathname || '/'
+    if (user) {
+        navigate(from, { replace: true })
+    }
+
+
+
+
     return (
         <div>
 
@@ -184,18 +131,6 @@ const Login = () => {
 
                     <div>
 
-                        {/* <button onClick={handleGoogleSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 left-0 ml-8 text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
-                            <FcGoogle className='ml-2'></FcGoogle>
-                        </button>
-
-                        <button onClick={handleFacebookSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 right-20  mr-16   text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
-                            <BsFacebook className='ml-2 text-blue-700'></BsFacebook>
-
-                        </button>
-                        <button onClick={handleGitHubSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 right-0 mr-16  text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
-                            <AiFillGithub className='ml-2 text-gray-700'></AiFillGithub>
-
-                        </button> */}
 
                         <SocialSignup></SocialSignup>
 

@@ -16,7 +16,7 @@ const Logout = () => {
         e.preventDefault()
         signOut(auth)
 
-        const from = location?.state?.form?.pathname || '/'
+        const from = location.state?.form?.pathname || '/'
 
         setTimeout(() => {
             if (user) {
@@ -28,7 +28,7 @@ const Logout = () => {
                 navigate(from, { replace: false })
             }
 
-        }, 1000)
+        }, 2000)
     }
     return (
         <div>
