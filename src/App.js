@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import { Route, Routes } from 'react-router';
 import './App.css';
-import DetailsService from './Pages/Services/DetailsService/DetailsService';
+import DetailsService from './Components/DetailsService/DetailsService';
 import Home from './Pages/Home/Home/Home';
 import Services from './Pages/Services/Services/Services';
 

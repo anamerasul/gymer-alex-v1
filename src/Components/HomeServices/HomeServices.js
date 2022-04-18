@@ -1,6 +1,6 @@
 import React from 'react';
-import UseServiceData from '../../../Hooks/UseServiceData';
-import Service from '../../Services/Service/Service';
+import UseServiceData from '../../Hooks/UseServiceData';
+import Service from '../Service/Service';
 
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
