@@ -14,6 +14,7 @@ import Logout from './Pages/LogOut/Logout';
 import RequareAuth from './Components/RequareAuth/RequareAuth';
 import NotFound from './Pages/NotFound/NotFound';
 import About from './Pages/About/About';
+import Footer from './Pages/Shared/Footer/Footer';
 
 
 function App() {
@@ -75,6 +76,8 @@ function App() {
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+
+      <Footer></Footer>
 
 
 
