@@ -8,7 +8,7 @@ const AboutChild = (props) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
             <div className="my-4" >
-                <img src={image} alt="" sizes="" srcset="" />
+                <img src={image} alt="img" />
             </div>
             <div>
                 <p className='mt-10 mb-3 font-semibold text-gray-100'>
