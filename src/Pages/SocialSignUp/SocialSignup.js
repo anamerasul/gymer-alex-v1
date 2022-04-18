@@ -26,7 +26,7 @@ const SocialSignup = () => {
     const location = useLocation()
 
 
-    const [error, setError] = useState([])
+    const [error, setError] = useState('')
 
 
     const verifyEmail = () => {
@@ -38,7 +38,7 @@ const SocialSignup = () => {
             })
     }
 
-    const handleGoogleSignUp = () => {
+    const handleGoogleSignUp = async () => {
 
 
         signInWithPopup(auth, googleprovider)
@@ -105,7 +105,7 @@ const SocialSignup = () => {
 
         setError('');
     }
-    const handleGitHubSignIn = () => {
+    const handleGitHubSignIn =() => {
         signInWithPopup(auth, githubprovider)
             .then((result) => {
                 const user = result.user;
@@ -133,15 +133,20 @@ const SocialSignup = () => {
 
     }
 
+
+    // useEffect(()=>{
+
+
+        
+    // },[])
+
+
+
     const from = location.state?.form?.pathname || '/'
 
     if (auth.currentUser) {
         navigate(from, { replace: true })
     }
-
-
-
-
 
 
 

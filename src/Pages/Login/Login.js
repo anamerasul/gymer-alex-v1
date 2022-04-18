@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+// eslint-disable-next-line 
+
+import React, { useState ,useEffect} from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -46,15 +48,19 @@ const Login = () => {
 
 
 
-
+      
 
     }
 
-
+useEffect(()=>{
     const from = location.state?.form?.pathname || '/'
     if (user) {
         navigate(from, { replace: true })
     }
+
+
+},[])
+  
 
 
 
