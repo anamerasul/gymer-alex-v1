@@ -16,6 +16,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import About from './Pages/About/About';
 import Footer from './Pages/Shared/Footer/Footer';
 import CheckOut from './Pages/CheckOut/CheckOut';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 function App() {
@@ -53,7 +54,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/forgot" element={<ForgotPassword></ForgotPassword>}></Route>
-
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
 
         <Route path="/update" element={
 
