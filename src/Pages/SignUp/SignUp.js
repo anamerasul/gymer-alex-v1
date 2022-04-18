@@ -23,7 +23,7 @@ const SignUp = () => {
 
     const [name, setName] = useState('')
 
-    const [verifysms, setVerifysms] = useState()
+    const [verifysms, setVerifysms] = useState('')
 
 
 
