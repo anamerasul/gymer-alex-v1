@@ -4,9 +4,12 @@ import { MdLegendToggle } from 'react-icons/md';
 
 import CustomLink from '../../../Components/CustomLink/CustomLink';
 import './Header.css'
+import auth from '../../../Firebase/firebase.init';
 
 // import logo from './../../../Images/logo.png'
 const Header = () => {
+
+    const user = auth.currentUser
     const [navbarOpen, setNavbarOpen] = useState(false);
     return (
         <header className=''>
@@ -63,6 +66,11 @@ const Header = () => {
 
                                 </li>
 
+
+                                <li>
+
+                                    {user?.displayName}
+                                </li>
 
                             </ul>
                         </div>

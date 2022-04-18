@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
@@ -11,9 +11,12 @@ import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthPr
 
 
 import auth from '../../Firebase/firebase.init';
+import SocialSignup from '../SocialSignUp/SocialSignup';
 
 
 const Login = () => {
+
+    const user = auth.currentUser;
 
     const googleprovider = new GoogleAuthProvider()
 
@@ -24,80 +27,72 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     // const [error, setError] = useState('')
+    const navigate = useNavigate()
+    const location = useLocation()
 
 
 
     const [
         signInWithEmailAndPassword,
-        user,
         loading,
         error
     ] = useSignInWithEmailAndPassword(auth);
 
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location?.state?.form?.pathname || '/'
+    // const handleGoogleSignIn = () => {
 
-    if (user) {
-        navigate(from, { replace: true })
-    }
+    //     signInWithPopup(auth, googleprovider)
+    //         .then((result) => {
+    //             const user = result.user;
 
+    //             console.log(user.displayName)
 
-    const handleGoogleSignIn = () => {
+    //             verifyEmail()
+    //         }).catch((error) => {
+    //             // Handle Errors here.
+    //             const errorMessage = error.message;
 
-        signInWithPopup(auth, googleprovider)
-            .then((result) => {
-                const user = result.user;
+    //         });
 
-                console.log(user.displayName)
+    // }
 
-                verifyEmail()
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorMessage = error.message;
-
-            });
-
-    }
-
-    console.log(error?.message)
-    const handleFacebookSignIn = () => {
-        signInWithPopup(auth, facebookProvider)
-            .then((result) => {
-                // The signed-in user info.
-                const user = result.user;
+    // console.log(error?.message)
+    // const handleFacebookSignIn = () => {
+    //     signInWithPopup(auth, facebookProvider)
+    //         .then((result) => {
+    //             // The signed-in user info.
+    //             const user = result.user;
 
 
-                console.log(user)
-                verifyEmail()
+    //             console.log(user)
+    //             verifyEmail()
 
 
-            })
-            .catch((error) => {
+    //         })
+    //         .catch((error) => {
 
-                const errorMessage = error.message;
-                // The email of the user's account used.
-            });
-
-
-    }
-    const handleGitHubSignIn = () => {
-
-        signInWithPopup(auth, githubprovider)
-            .then((result) => {
-                const user = result.user;
+    //             const errorMessage = error.message;
+    //             // The email of the user's account used.
+    //         });
 
 
-                console.log(user)
-                verifyEmail()
+    // }
+    // const handleGitHubSignIn = () => {
 
-            })
+    //     signInWithPopup(auth, githubprovider)
+    //         .then((result) => {
+    //             const user = result.user;
 
-            .catch((error) => {
-                const errorMessage = error.message;
-            });
 
-    }
+    //             console.log(user)
+    //             verifyEmail()
+
+    //         })
+
+    //         .catch((error) => {
+    //             const errorMessage = error.message;
+    //         });
+
+    // }
 
     const handleEmailBlur = e => {
 
@@ -118,21 +113,26 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
 
 
+        const from = location?.state?.form?.pathname || '/'
+        if (user) {
+            navigate(from, { replace: true })
+        }
 
 
 
     }
 
+    console.log(user)
 
 
-    const verifyEmail = () => {
 
-        sendEmailVerification(auth.currentUser)
-            .then(() => {
 
-                console.log('verify')
-            })
-    }
+
+
+
+
+
+    console.log(user)
     return (
         <div>
 
@@ -205,7 +205,7 @@ const Login = () => {
 
                     <div>
 
-                        <button onClick={handleGoogleSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 left-0 ml-8 text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
+                        {/* <button onClick={handleGoogleSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 left-0 ml-8 text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
                             <FcGoogle className='ml-2'></FcGoogle>
                         </button>
 
@@ -216,8 +216,9 @@ const Login = () => {
                         <button onClick={handleGitHubSignIn} className="bg-gray-200 mx-auto flex justify-between items-center text-center absolute bottom-7 right-0 mr-16  text-black font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-[14px]">
                             <AiFillGithub className='ml-2 text-gray-700'></AiFillGithub>
 
-                        </button>
+                        </button> */}
 
+                        <SocialSignup></SocialSignup>
 
 
                     </div>

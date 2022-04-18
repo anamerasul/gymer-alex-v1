@@ -8,6 +8,8 @@ import Services from './Pages/Services/Services/Services';
 import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
+import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
+import UpdateProfile from './Pages/UpdateProfile/UpdateProfile';
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
 
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route path="/forgot" element={<ForgotPassword></ForgotPassword>}></Route>
+        <Route path="/update" element={<UpdateProfile></UpdateProfile>}></Route>
       </Routes>
 
 
