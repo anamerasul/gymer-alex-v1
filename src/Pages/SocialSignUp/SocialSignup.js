@@ -136,7 +136,7 @@ const SocialSignup = () => {
 
     useEffect(() => {
 
-        let from = location.state?.form?.pathname || '/'
+        let from = location.state?.form?.pathname || '/services'
 
         if (user) {
             navigate(from, { replace: true })

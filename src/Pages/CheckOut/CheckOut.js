@@ -69,7 +69,7 @@ const CheckOut = () => {
             }
         }, 2000)
     }
-    setError('')
+    // setError('')
     // console.log(name)
 
 
@@ -190,3 +190,76 @@ const CheckOut = () => {
 };
 
 export default CheckOut;
+
+// import React, { useState } from 'react';
+
+// const CheckOut = () => {
+
+//     const [email, setEmail] = useState('')
+//     const [name, setName] = useState('')
+//     const [address, setAddress] = useState('')
+//     const [phoneNumber, setPhoneNumber] = useState('')
+//     const [date, setDate] = useState('')
+//     const [error, setError] = useState('')
+
+
+//     // const handleNameBlur = (e) => {
+
+//     //     setName(e.target.value)
+//     // }
+
+//     // const handleEmailBlur = e => {
+
+//     //     setEmail(e.target.value)
+//     // }
+
+
+//     // const handleAddressBlur = e => {
+
+//     //     // setPassword(e.target.value)
+
+//     //     setAddress(e.target.value)
+//     // }
+
+//     // const handlePhoneNumberdBlur = e => {
+//     //     console.log(e.target.value)
+
+//     //     const num = e.target.value
+//     //     console.log(typeof +num)
+
+//     //     if (num) {
+//     //         setPhoneNumber(num)
+//     //     }
+//     // }
+//     // const handleDateBlur = e => {
+
+//     //     setDate(e.target.value)
+//     // }
+
+
+//     const handleShipment = (e) => {
+
+//         e.preventDefault()
+//         // const shiping = { name, email, address, phoneNumber, date }
+
+//         // console.log(shiping)
+
+//         // toast.success('User Successfully purchase');
+//         // const from = location.state?.form?.pathname || '/'
+//         // setTimeout(() => {
+
+//         //     if (user) {
+//         //         navigate(from, { replace: true })
+//         //     }
+//         // }, 2000)
+//     }
+//     // setError('')
+//     // console.log(name)
+//     return (
+//         <div>
+//             <h2>Checkout</h2>
+//         </div>
+//     );
+// };
+
+// export default CheckOut;

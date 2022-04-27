@@ -3,6 +3,7 @@ import UseServiceData from '../../../Hooks/UseServiceData';
 import Service from '../../../Components/Service/Service';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase/firebase.init';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
@@ -11,6 +12,21 @@ const Services = () => {
     const [services] = UseServiceData([])
 
     useAuthState(auth);
+
+    // const [user] = useAuthState(auth)
+
+    // const navigate = useNavigate()
+    // const location = useLocation()
+
+
+
+    // const from = location.state?.form?.pathname || '/services'
+    // setTimeout(() => {
+
+    //     if (user) {
+    //         navigate(from, { replace: true })
+    //     }
+    // }, 20)
 
 
     return (

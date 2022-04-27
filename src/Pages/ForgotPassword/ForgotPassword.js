@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../../Firebase/firebase.init';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
 
 const ForgotPassword = () => {
 
@@ -19,7 +20,7 @@ const ForgotPassword = () => {
         e.preventDefault()
 
         await sendPasswordResetEmail(email);
-        alert('Sent email');
+        toast('Sent email');
     }
     return (
 
@@ -84,6 +85,10 @@ const ForgotPassword = () => {
 
             </div>
 
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+            />
 
 
 
